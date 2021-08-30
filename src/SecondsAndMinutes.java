@@ -1,7 +1,14 @@
+import jdk.swing.interop.SwingInterOpUtils;
+
 public class SecondsAndMinutes {
+
+    private static final String INVALID_VALUE_MESSAGE = "Invalid value";
+
     public static void main(String[] args) {
+
         System.out.println(getDurationString(120, 0));
         System.out.println(getDurationString(3945));
+        System.out.println(getDurationString(-41));
     }
     public static String getDurationString(int minutes, int seconds){
         if(minutes >= 0 && (seconds >= 0 && seconds <= 59)){
@@ -23,7 +30,7 @@ public class SecondsAndMinutes {
 //            System.out.println(hours + "h " + remainingMinutes + "m " + seconds + "s");
             return hoursString + " " + minutesString + " " + secondsString + "";
         } else {
-            return "Invalid value";
+            return INVALID_VALUE_MESSAGE;
         }
     }
 
@@ -34,7 +41,7 @@ public class SecondsAndMinutes {
 //            System.out.println(getDurationString(minutes, remainingSecs));
             return getDurationString(minutes, remainingSecs);
         } else {
-            return "Invalid value";
+            return INVALID_VALUE_MESSAGE;
         }
     }
 
