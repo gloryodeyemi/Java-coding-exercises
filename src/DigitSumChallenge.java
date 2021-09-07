@@ -1,9 +1,11 @@
 public class DigitSumChallenge {
 
     public static void main(String[] args) {
-        System.out.println(subDigitWithString(125));
+        System.out.println(sumDigitWithString(125));
         System.out.println(sumDigits(12567));
     }
+
+    // Solution 1
     public static int sumDigits(int number){
         if (number < 10){
             return -1;
@@ -19,13 +21,14 @@ public class DigitSumChallenge {
         return sum;
     }
 
-    static  int subDigitWithString(int number) {
+    // Solution 2
+    static  int sumDigitWithString(int number) {
         String num = String.valueOf(number);
-        int totAL = 0;
+        int total = 0;
         for (int i = 0; i < num.length(); i++) {
-            totAL = totAL + Integer.parseInt(String.valueOf(num.charAt(i)));
+            total += Integer.parseInt(String.valueOf(num.charAt(i)));
         }
-        return totAL;
+        return total;
     }
     /*
     Write a method with the name sumDigits that has one int parameter called number.
