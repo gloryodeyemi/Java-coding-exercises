@@ -43,5 +43,20 @@ public class Main {
         bankAccount.depositFunds(8000.0d);
         bankAccount.withdrawFunds(6000.0d);
         bankAccount.withdrawFunds(9000.0d);
+        System.out.println("---------------------------");
+
+        // VIP Customer
+        VipCustomer customer1 = new VipCustomer("Jimmy John", 10000.0d,
+                "jimmy@john.com");
+        System.out.println("Name = " + customer1.getName());
+        System.out.println("---------------------------");
+
+        VipCustomer customer2 = new VipCustomer("James Bryan", 10000.0d);
+        System.out.println("Email address = " + customer2.getEmailAddress());
+        System.out.println("---------------------------");
+
+        VipCustomer customer3 = new VipCustomer();
+        System.out.println("Credit limit = " + customer3.getCreditLimit());
+        System.out.println("---------------------------");
     }
 }
