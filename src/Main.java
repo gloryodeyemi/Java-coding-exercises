@@ -102,5 +102,12 @@ public class Main {
         System.out.println("number.real= " + number.getReal());
         System.out.println("number.imaginary= " + number.getImaginary());
         System.out.println("---------------------------");
+
+        // Vehicle, Car, and Toyota
+        Toyota toyota = new Toyota(36);
+        toyota.steer(45);
+        toyota.accelerate(30);
+        toyota.accelerate(20);
+        toyota.accelerate(-42);
     }
 }

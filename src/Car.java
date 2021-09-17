@@ -18,8 +18,8 @@ public class Car extends Vehicle{
 
 
     public void changeVelocity(int speed, int direction){
-        move(speed, direction);
         System.out.println("Velocity " + speed + " direction " + direction);
+        move(speed, direction);
     }
 
     public void changeGear(int currentGear) {
