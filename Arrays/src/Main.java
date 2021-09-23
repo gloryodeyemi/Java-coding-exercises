@@ -23,6 +23,16 @@ public class Main {
         return array;
     }
 
+//    public static int[] getIntegers(int size){
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Enter " + size + " integers: \r");
+//        int[] array = new int[size];
+//        for (int i=0; i < array.length; i++){
+//            array[i] = scanner.nextInt();
+//        }
+//        return array;
+//    }
+
     public static void printArray(int[] array){
         System.out.println("The integers in the array are: ");
         for (int i = 1; i <= array.length; i++){
@@ -30,10 +40,26 @@ public class Main {
         }
     }
 
+//    public static void printArray(int[] array){
+//        for (int i = 0; i < array.length; i++){
+//            System.out.println("Element " + i + " contents " + array[i]);
+//        }
+//    }
+
     public static int[] sortIntegers(int[] array){
         int[] arrayCopy = array.clone();
         Arrays.sort(arrayCopy);
-//        System.out.println(arrayCopy);
+        // code to reverse the sorted array
+        int i = 0;
+        int j = arrayCopy.length - 1;
+        int tmp;
+        while (j > i) {
+            tmp = arrayCopy[j];
+            arrayCopy[j] = arrayCopy[i];
+            arrayCopy[i] = tmp;
+            j--;
+            i++;
+        }
         return arrayCopy;
     }
 }
