@@ -12,7 +12,7 @@ public class Main {
         int choice = 0;
         printOptions();
         while (!quit) {
-            System.out.println("Enter your choice: ");
+            System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -26,16 +26,17 @@ public class Main {
                 case 2:
                     addContact();
                     break;
-//                case 3:
-//                    updateContact();
-//                    break;
-//                case 4:
-//                    removeContact();
-//                    break;
-//                case 5:
-//                    searchContact();
-//                    break;
+                case 3:
+                    updateContact();
+                    break;
+                case 4:
+                    removeContact();
+                    break;
+                case 5:
+                    searchContact();
+                    break;
                 case 6:
+                    System.out.println("Shutting down...");
                     quit = true;
                     break;
                 default:
@@ -53,40 +54,49 @@ public class Main {
         System.out.println("\t 3 - To update an existing contact on mobile phone.");
         System.out.println("\t 4 - To remove a contact from mobile phone.");
         System.out.println("\t 5 - To search for a contact on mobile phone.");
-        System.out.println("\t 6 - To quit the application.");
+        System.out.println("\t 6 - To shut down.");
     }
 
     public static void addContact(){
-        Contacts contact = new Contacts();
         System.out.print("Please enter the contact name: ");
-        contact.setName(scanner.nextLine());
+        String name = scanner.nextLine();
         System.out.print("Please enter the phone number: ");
-        contact.setPhoneNumber(scanner.nextLine());
+        String number = scanner.nextLine();
+        Contacts contact = new Contacts(name, number);
         mobilePhone.addContacts(contact);
     }
 
-//    public static void updateContact() {
-//
-//        System.out.print("Enter the current contact name: ");
-//        String contactName = scanner.nextLine();
-//        System.out.println("Enter replacement item: ");
-//        String newItem = scanner.nextLine();
-//        groceryList.modifyGroceryItem(itemName, newItem);
-//    }
-//
-//    public static void removeContact() {
-//        System.out.print("Enter contact name: ");
-//        String contactName = scanner.nextLine();
-//        mobilePhone.removeContacts(contactName);
-//    }
-//
-//    public static void searchForItem(){
-//        System.out.print("Enter item to search for: ");
-//        String searchItem = scanner.nextLine();
-//        if (groceryList.onFile(searchItem)){
-//            System.out.println("Found " + searchItem + " in our grocery list");
-//        } else {
-//            System.out.println(searchItem + " is not in the shopping list");
-//        }
-//    }
+    public static void updateContact() {
+        System.out.print("Enter the existing contact name: ");
+        String contactName = scanner.nextLine();
+        Contacts oldContact = mobilePhone.queryContact(contactName);
+        System.out.print("Enter the new contact name: ");
+        String newName = scanner.nextLine();
+        System.out.print("Enter the new contact phone number: ");
+        String newNumber = scanner.nextLine();
+        Contacts newContact = new Contacts(newName, newNumber);
+        mobilePhone.modifyContacts(oldContact, newContact);
+    }
+
+    public static void removeContact() {
+        System.out.print("Enter contact name: ");
+        String contactName = scanner.nextLine();
+        Contacts oldContact = mobilePhone.queryContact(contactName);
+        if (oldContact == null){
+            System.out.println("Contact not found!");
+        } else {
+            mobilePhone.removeContacts(oldContact);
+        }
+    }
+
+    public static void searchContact(){
+        System.out.print("Enter contact name to search for: ");
+        String name = scanner.nextLine();
+        if (mobilePhone.queryContact(name) == null){
+            System.out.println(name + " not found in contact list!");
+        } else {
+            Contacts foundContact = mobilePhone.queryContact(name);
+            System.out.println("Found " + name + " -> " + foundContact.getPhoneNumber() + " in the contact list!");
+        }
+    }
 }
