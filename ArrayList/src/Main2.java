@@ -25,15 +25,15 @@ public class Main2 {
                 case 2:
                     addContact();
                     break;
-//                case 3:
-//                    updateContact();
-//                    break;
-//                case 4:
-//                    removeContact();
-//                    break;
-//                case 5:
-//                    searchContact();
-//                    break;
+                case 3:
+                    updateContact();
+                    break;
+                case 4:
+                    removeContact();
+                    break;
+                case 5:
+                    searchContact();
+                    break;
                 case 6:
                     System.out.println("Shutting down...");
                     quit = true;
@@ -61,33 +61,47 @@ public class Main2 {
         String name = scanner.nextLine();
         System.out.print("Please enter the phone number: ");
         String number = scanner.nextLine();
-        Contact2 contact = new Contact2(name, number);
+        Contact2 contact = Contact2.createContact(name, number);
         mobilePhone2.addContacts(contact);
     }
 
-//    public static void updateContact() {
-//
-//        System.out.print("Enter the current contact name: ");
-//        String contactName = scanner.nextLine();
-//        System.out.println("Enter replacement item: ");
-//        String newItem = scanner.nextLine();
-//        groceryList.modifyGroceryItem(itemName, newItem);
-//    }
-//
-//    public static void removeContact() {
-//        System.out.print("Enter contact name: ");
-//        String contactName = scanner.nextLine();
-//        mobilePhone.removeContacts(contactName);
-//    }
-//
-//    public static void searchForItem(){
-//        System.out.print("Enter item to search for: ");
-//        String searchItem = scanner.nextLine();
-//        if (groceryList.onFile(searchItem)){
-//            System.out.println("Found " + searchItem + " in our grocery list");
-//        } else {
-//            System.out.println(searchItem + " is not in the shopping list");
-//        }
-//    }
+    public static void updateContact() {
+        System.out.print("Enter the existing contact name: ");
+        String contactName = scanner.nextLine();
+        Contact2 existingContactRecord = mobilePhone2.queryContact(contactName);
+        if (existingContactRecord == null){
+            System.out.println("Contact not found!");
+        }else {
+            System.out.println("Enter new contact name: ");
+            String newName = scanner.nextLine();
+            System.out.println("Enter new contact phone number: ");
+            String newNumber = scanner.nextLine();
+            Contact2 newContact = Contact2.createContact(newName, newNumber);
+            mobilePhone2.modifyContacts(existingContactRecord, newContact);
+        }
+    }
+
+    public static void removeContact() {
+        System.out.print("Enter the existing contact name: ");
+        String contactName = scanner.nextLine();
+        Contact2 existingContactRecord = mobilePhone2.queryContact(contactName);
+        if (existingContactRecord == null){
+            System.out.println("Contact not found!");
+        }else {
+            mobilePhone2.removeContacts(existingContactRecord);
+        }
+    }
+
+    public static void searchContact() {
+        System.out.print("Enter the existing contact name: ");
+        String contactName = scanner.nextLine();
+        Contact2 existingContactRecord = mobilePhone2.queryContact(contactName);
+        if (existingContactRecord == null){
+            System.out.println("Contact not found!");
+        }else {
+            System.out.println("Name: " + existingContactRecord.getName() + "\nPhone number: " + existingContactRecord.getPhoneNumber());
+        }
+    }
+
 
 }

@@ -77,4 +77,12 @@ public class MobilePhone2 {
         }
         return null;
     }
+
+    public Contact2 queryContact(String name) {
+        int position = findContacts(name);
+        if (position >= 0){
+            return this.contactList.get(position);
+        }
+        return null;
+    }
 }
