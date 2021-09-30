@@ -20,7 +20,7 @@ public class Main2 {
                     printOptions();
                     break;
                 case 1:
-                    mobilePhone2.printContacts();
+                    mobilePhone2.printContact();
                     break;
                 case 2:
                     addContact();
@@ -62,7 +62,7 @@ public class Main2 {
         System.out.print("Please enter the phone number: ");
         String number = scanner.nextLine();
         Contact2 contact = Contact2.createContact(name, number);
-        mobilePhone2.addContacts(contact);
+        mobilePhone2.addNewContact(contact);
     }
 
     public static void updateContact() {
@@ -77,7 +77,7 @@ public class Main2 {
             System.out.println("Enter new contact phone number: ");
             String newNumber = scanner.nextLine();
             Contact2 newContact = Contact2.createContact(newName, newNumber);
-            mobilePhone2.modifyContacts(existingContactRecord, newContact);
+            mobilePhone2.updateContact(existingContactRecord, newContact);
         }
     }
 
@@ -88,7 +88,7 @@ public class Main2 {
         if (existingContactRecord == null){
             System.out.println("Contact not found!");
         }else {
-            mobilePhone2.removeContacts(existingContactRecord);
+            mobilePhone2.removeContact(existingContactRecord);
         }
     }
 
