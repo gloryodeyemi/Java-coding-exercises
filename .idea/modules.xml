@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ArrayList/ArrayList.iml" filepath="$PROJECT_DIR$/ArrayList/ArrayList.iml" />
       <module fileurl="file://$PROJECT_DIR$/Arrays/Arrays.iml" filepath="$PROJECT_DIR$/Arrays/Arrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Autoboxing&amp;Unboxing/Autoboxing&amp;Unboxing.iml" filepath="$PROJECT_DIR$/Autoboxing&amp;Unboxing/Autoboxing&amp;Unboxing.iml" />
       <module fileurl="file://$PROJECT_DIR$/Classes/Classes.iml" filepath="$PROJECT_DIR$/Classes/Classes.iml" />
       <module fileurl="file://$PROJECT_DIR$/CodingExercises.iml" filepath="$PROJECT_DIR$/CodingExercises.iml" />
       <module fileurl="file://$PROJECT_DIR$/Composition/Composition.iml" filepath="$PROJECT_DIR$/Composition/Composition.iml" />
