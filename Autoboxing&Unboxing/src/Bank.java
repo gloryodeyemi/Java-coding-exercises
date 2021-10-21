@@ -2,24 +2,23 @@ import java.util.ArrayList;
 
 public class Bank {
     private String name;
-    ArrayList<Branches> branches;
+    private ArrayList<Branch> branches;
 
     public Bank(String name) {
         this.name = name;
-        this.branches = new ArrayList<Branches>();
-
+        this.branches = new ArrayList<Branch>();
     }
 
     public boolean addBranch(String branchName){
         if (findBranch(branchName) == null) {
-            this.branches.add(new Branches(branchName));
+            this.branches.add(new Branch(branchName));
             return true;
         }
         return false;
     }
 
     public boolean addCustomer(String branchName, String customerName, double initialAmount) {
-        Branches branch = findBranch(branchName);
+        Branch branch = findBranch(branchName);
         if (branch != null) {
             return branch.newCustomer(customerName,initialAmount);
         }
@@ -27,16 +26,16 @@ public class Bank {
     }
 
     public boolean addCustomerTransaction(String branchName, String customerName, double amount){
-        Branches branch = findBranch(branchName);
+        Branch branch = findBranch(branchName);
         if (branch != null) {
             return branch.addCustomerTransaction(customerName, amount);
         }
         return false;
     }
 
-    private Branches findBranch(String branchName){
+    private Branch findBranch(String branchName){
         for (int i=0; i<this.branches.size(); i++){
-            Branches checkedBranch = this.branches.get(i);
+            Branch checkedBranch = this.branches.get(i);
             if (checkedBranch.getName().equals(branchName)){
                 return checkedBranch;
             }
@@ -44,16 +43,16 @@ public class Bank {
         return null;
     }
 
-    public boolean listCustomer(String branchName, boolean showTransactions){
-        Branches branch = findBranch(branchName);
+    public boolean listCustomers(String branchName, boolean showTransactions){
+        Branch branch = findBranch(branchName);
         if (branch != null){
             System.out.println("Customer details for branch " + branch.getName());
 
-            ArrayList<Customers> branchCustomers = branch.getCustomers();
+            ArrayList<Customer> branchCustomers = branch.getCustomers();
             for (int i=0; i<branchCustomers.size(); i++){
-                Customers branchCustomer = branchCustomers.get(i);
+                Customer branchCustomer = branchCustomers.get(i);
                 System.out.println("Customer: " + branchCustomer.getName() + "" +
-                        "[" + i + "]");
+                        "[" + (i+1) + "]");
                 if (showTransactions){
                     System.out.println("Transactions");
                     ArrayList<Double> transactions =  branchCustomer.getTransactions();
