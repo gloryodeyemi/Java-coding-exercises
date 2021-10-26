@@ -71,8 +71,9 @@ public class Main {
                 "2 - Skip to the previous song\n" +
                 "3 - Replay the current song\n" +
                 "4 - List songs in the playlist\n" +
-                "5 - Remove song from playlist\n" +
-                "6 - print menu options");
+                "5 - Remove a song from playlist\n" +
+                "6 - Remove current song from playlist\n" +
+                "7 - print menu options");
     }
 
     private static void menu(LinkedList playlist){
@@ -149,8 +150,15 @@ public class Main {
                     break;
 
                 case 6:
+                    listIterator.remove();
+                    System.out.println("Current song has been removed from the playlist.");
+                    break;
+
+                case 7:
                     printMenu();
                     break;
+
+
             }
         }
     }
