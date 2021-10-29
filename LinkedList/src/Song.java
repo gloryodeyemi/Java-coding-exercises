@@ -11,15 +11,9 @@ public class Song {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    @Override
+    public String toString() {
+        return this.title + ": " + this.duration;
     }
 
-    public double getDuration() {
-        return duration;
-    }
-
-    public void setDuration(double duration) {
-        this.duration = duration;
-    }
 }
