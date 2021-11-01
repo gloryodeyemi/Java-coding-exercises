@@ -9,7 +9,7 @@ public class Monster implements ISaveable{
     public Monster(String name, int hitPoints, int strength) {
         this.name = name;
         this.hitPoints = hitPoints;
-        strength = strength;
+        this.strength = strength;
     }
 
     public String getName() {
@@ -47,7 +47,7 @@ public class Monster implements ISaveable{
         return "Monster{" +
                 "name='" + name + '\'' +
                 ", hitPoints=" + hitPoints +
-                ", Strength=" + strength +
+                ", strength=" + strength +
                 '}';
     }
 }
