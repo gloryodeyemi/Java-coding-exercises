@@ -12,14 +12,15 @@ public class Main {
         System.out.println(glory);
         glory.setWeapon("Stormbringer");
         saveObject(glory);
-        loadObject(glory);
+//        loadObject(glory);
         System.out.println(glory);
 
         ISaveable werewolf = new Monster("Werewolf", 20, 40);
+        System.out.println("Strength = " + ((Monster) werewolf).getStrength());
         System.out.println(werewolf);
         saveObject(werewolf);
     }
-    public static ArrayList<String> readvalues(){
+    public static ArrayList<String> readValues(){
         ArrayList<String> values = new ArrayList<>();
 
         Scanner scanner = new Scanner(System.in);
@@ -55,7 +56,7 @@ public class Main {
     }
 
     public static void loadObject(ISaveable objectToLoad) {
-        ArrayList<String> values = readvalues();
+        ArrayList<String> values = readValues();
         objectToLoad.read(values);
     }
 }
