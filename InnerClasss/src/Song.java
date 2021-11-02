@@ -15,5 +15,4 @@ public class Song {
     public String toString() {
         return this.title + ": " + this.duration;
     }
-
 }
