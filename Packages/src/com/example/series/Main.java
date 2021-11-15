@@ -11,11 +11,18 @@ public class Main {
             System.out.println(Series.nSum(i));
         }
 
-        System.out.println("==================\nFactorial\n" +
+        System.out.println("==================\nFactorial 1\n" +
                 "==================");
 
         for (int i=1; i<=10; i++){
             System.out.println(Series.factorial(i));
+        }
+
+        System.out.println("==================\nFactorial 2\n" +
+                "==================");
+
+        for (int i=0; i<=10; i++){
+            System.out.println(Series.factorial1(i));
         }
 
         System.out.println("==================\nFibonacci\n" +

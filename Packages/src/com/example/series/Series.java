@@ -18,6 +18,10 @@ public class Series {
         return product;
     }
 
+    public static int factorial1(int n) {
+        return (n==0 || n==1) ? n : n * factorial(n-1);
+    }
+
     public static int fibonacci(int n) {
             return (n==0 || n==1) ? n : fibonacci(n-1) + fibonacci(n-2);
     }
