@@ -1,14 +1,13 @@
 public class X {
-
     private int x;
 
-    public X() {
-        System.out.println("x is = " + x);
+    public X(int x) {
+        this.x = x;
     }
 
-    public void x(int x) {
-        for (int i=1; i<=12; i++){
-            System.out.println(i + " * " + x + " is " + i * x);
+    public void x() {
+        for (int x=1; x<=12; x++){
+            System.out.println(x + " * " + this.x + " is " + x * this.x);
         }
     }
 }
